@@ -1,11 +1,7 @@
 import Image from "next/image";
 import FeatureCard from "./components/FeatureCard";
 // import VideoGrid from "./components/VideoGrid/VideoGrid";
-import {
-  getFields,
-  getLogos,
-  getCaseStudiesContent,
-} from "./utils/contentful";
+import { getFields, getLogos, getCaseStudiesContent } from "./utils/contentful";
 
 export default async function Home() {
   const logos = await getLogos();
@@ -28,6 +24,17 @@ export default async function Home() {
         <div className="w-full h-48 max-w-[80%] bg-white rounded-xl"></div>
       </section>
       {/* LOGO GRID */}
+      <section className="flex gap-4 overflow-hidden">
+        <div className="border-white border-[0.5px] w-fit h-16 rounded-[32px]">
+          <img src="" alt="" className="w-32" />
+        </div>
+        <div className="border-white border-[0.5px] w-fit h-16 rounded-[32px]">
+          <img src="" alt="" className="w-64" />
+        </div>
+        <div className="border-white border-[0.5px] w-fit h-16 rounded-[32px]">
+          <img src="" alt="" className="w-32" />
+        </div>
+      </section>
       {/* mission statement */}
       {/* feature row */}
       {/* <VideoGrid /> */}
