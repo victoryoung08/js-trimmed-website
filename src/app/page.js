@@ -73,7 +73,7 @@ export default async function Home() {
           <div>
             <h4 className="uppercase">Built to sell</h4>
             <p>
-              Laser in on your customer and create an offer so good they can't
+              Laser in on your customer and create an offer so good they can&apos;t
               say no
             </p>
           </div>
@@ -87,7 +87,7 @@ export default async function Home() {
           <div>
             <h4 className="uppercase">Get in front of them</h4>
             <p>
-              We'll implement our paid ads process to get qualified leads coming
+              We&apos;ll implement our paid ads process to get qualified leads coming
               in
             </p>
           </div>
