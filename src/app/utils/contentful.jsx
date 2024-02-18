@@ -7,12 +7,6 @@ const accessToken = process.env.CONTENTFUL_ACCESSTOKEN;
 const contentType = process.env.CONTENTFUL_CONTENT_TYPE;
 const caseStudiesContentTypeId = "caseStudies";
 
-const client = contentful.createClient({
-  space: space,
-  environment: environment,
-  accessToken: accessToken,
-});
-
 export const getCaseStudies = async () => {
   try {
     const res = await fetch(
