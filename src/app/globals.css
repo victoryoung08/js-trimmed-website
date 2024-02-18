@@ -3,17 +3,38 @@
 @tailwind utilities;
 
 h1 {
-  @apply text-6xl font-black tracking-[-4px];
+  @apply text-6xl font-black tracking-[-5px];
 }
 
 h2 {
-  @apply text-3xl font-black tracking-[-2px];
+  @apply text-4xl font-black tracking-[-2px];
 }
 
-p {
+h3 {
+  @apply text-2xl font-black tracking-[-1.5px];
+}
+
+h4 {
+  @apply text-xl font-black tracking-[-0.5px];
+}
+
+p,
+li {
   @apply text-medium tracking-tighter;
 }
 
 button {
   @apply bg-primary font-semibold text-black py-2 px-4 rounded-lg tracking-tighter;
+}
+
+.section-x-padding {
+  @apply px-4 sm:px-12 md:px-48;
+}
+
+.section-y-padding {
+  @apply py-24;
+}
+
+.section-y-padding.sm {
+  @apply py-12;
 }
