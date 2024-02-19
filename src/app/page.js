@@ -2,10 +2,14 @@ import Image from "next/image";
 import FeatureCard from "./components/FeatureCard";
 // import VideoGrid from "./components/VideoGrid/VideoGrid";
 import { getFields, getLogos, getCaseStudiesContent } from "./utils/contentful";
+import ServiceGrid from "./components/ServiceGrid";
+import Timeline from "./components/Timeline";
+import ContactForm from "./components/ContactForm";
 
 export default async function Home() {
   const logos = await getLogos();
   const caseStudies = await getCaseStudiesContent();
+
   return (
     <main className="section-x-padding">
       <section className="flex flex-col items-center py-24 gap-12 h-fit">
@@ -13,13 +17,14 @@ export default async function Home() {
           <h1 className="uppercase">
             More Customers
             <br />
-            you love to work with.
+            you <span className="">love</span>
+            to work with.
           </h1>
           <p className="">
             If only more people knew about your business. <br /> We damn good
             content to get their attention, and turn followers into customers.
           </p>
-          <button>SOUNDS GOOD, LET&apos;S ROLL</button>
+          <button className="button large">SOUNDS GOOD, LET&apos;S ROLL</button>
         </div>
         <div className="w-full h-32 bg-white"></div>
       </section>
@@ -60,40 +65,10 @@ export default async function Home() {
         </div>
       </section>
       {/* how it works */}
-      <section className="section-y-padding">
-        <div className="relative w-full h-[600px]">
-          <div
-            id="midline"
-            className="absolute border-white border-[0.5px] h-full top-1/2 left-1/2 translate-x-[50%] translate-y-[-50%]"
-          ></div>
-          <div>
-            <h4 className="uppercase">Get Started</h4>
-            <p>Book a call or get straight into our process.</p>
-          </div>
-          <div>
-            <h4 className="uppercase">Built to sell</h4>
-            <p>
-              Laser in on your customer and create an offer so good they can&apos;t
-              say no
-            </p>
-          </div>
-          <div>
-            <h4 className="uppercase">Content that hits</h4>
-            <p>
-              Begin to develop and shoot content that positions your business as
-              #1 in your industry.
-            </p>
-          </div>
-          <div>
-            <h4 className="uppercase">Get in front of them</h4>
-            <p>
-              We&apos;ll implement our paid ads process to get qualified leads coming
-              in
-            </p>
-          </div>
-        </div>
-      </section>
+      <Timeline />
       {/* <VideoGrid /> */}
+      {/* services */}
+      {/* <ServiceGrid /> */}
       {/* case study */}
       <section className="section-y-padding flex flex-col gap-8">
         {caseStudies.map((cs, index) =>
@@ -104,6 +79,8 @@ export default async function Home() {
           )
         )}
       </section>
+      {/* Form */}
+      <ContactForm />
     </main>
   );
 }

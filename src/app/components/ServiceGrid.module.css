@@ -1,0 +1,19 @@
+.gridContainer {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 0.5px; /* This will create the "border" effect */
+  background-color: rgb(93, 93, 93); /* This will be the "border" color */
+}
+
+.gridContainer > div {
+  background-color: black; /* This will be the cell color */
+}
+
+/* This will remove the "border" from the outer edges of the grid */
+.gridContainer > div:not(:nth-child(2n)) {
+  border-right: 0.5px solid rgb(93, 93, 93);
+}
+
+.gridContainer > div:not(:nth-last-child(-n + 3)) {
+  border-bottom: 0.5px solid rgb(93, 93, 93);
+}

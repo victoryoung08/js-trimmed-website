@@ -14,12 +14,14 @@ h3 {
   @apply text-2xl font-black tracking-[-1.5px];
 }
 
-h4 {
+h4,
+label {
   @apply text-xl font-black tracking-[-0.5px];
 }
 
 p,
-li {
+li,
+input {
   @apply text-medium tracking-tighter;
 }
 
@@ -37,4 +39,8 @@ button {
 
 .section-y-padding.sm {
   @apply py-12;
+}
+
+button.large {
+  @apply h-12;
 }
