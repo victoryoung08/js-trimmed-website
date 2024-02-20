@@ -11,7 +11,7 @@ export default async function Home() {
   const caseStudies = await getCaseStudiesContent();
 
   return (
-    <main className="section-x-padding">
+    <main className="section-x-padding relative z-20">
       <section className="flex flex-col items-center py-24 gap-12 h-fit">
         <div className="text-center flex flex-col gap-4 items-center ">
           <h1 className="uppercase">
@@ -80,7 +80,7 @@ export default async function Home() {
         )}
       </section>
       {/* Form */}
-      <ContactForm />
+      <ContactForm type={"strategy"} />
     </main>
   );
 }
