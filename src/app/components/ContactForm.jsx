@@ -12,10 +12,10 @@ export default function ContactForm({ type = "default" }) {
         <div className="flex flex-col items-center justify-center gap-4 py-12">
           <h2 className="uppercase">Book a FREE Strategy call</h2>
           <ul className="list-disc flex flex-col gap-1">
-            <li>We'll review your lead generation strategy</li>
-            <li>We'll identify the gaps in your current strategy</li>
+            <li>We&apos;ll review your lead generation strategy</li>
+            <li>We&apos;ll identify the gaps in your current strategy</li>
             <li>
-              We'll give you a plan to fix it (and see if we're a good fit)
+              We&apos;ll give you a plan to fix it (and see if we're a good fit)
             </li>
           </ul>
         </div>
