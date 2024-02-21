@@ -24,6 +24,9 @@ export default async function Home() {
         />
       </Head>
       <section className="flex flex-col items-center py-24 gap-12 h-fit">
+        {caseStudies.map((cs) => (
+          <h1>hello contentful</h1>
+        ))}
         <div className="text-center flex flex-col gap-4 items-center ">
           <h1 className="uppercase">
             More Customers
