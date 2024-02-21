@@ -15,7 +15,8 @@ export default function ContactForm({ type = "default" }) {
             <li>We&apos;ll review your lead generation strategy</li>
             <li>We&apos;ll identify the gaps in your current strategy</li>
             <li>
-              We&apos;ll give you a plan to fix it (and see if we're a good fit)
+              We&apos;ll give you a plan to fix it (and see if we&apos;re a good
+              fit)
             </li>
           </ul>
         </div>
