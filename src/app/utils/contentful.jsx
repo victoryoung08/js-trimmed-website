@@ -112,3 +112,24 @@ export const getCaseStudyPageData = async (query, value) => {
     console.log(error);
   }
 };
+
+export const getAssetsInfo = async (id) => {
+  const res = await fetch(
+    `${base_url}/spaces/${space}/environments/${environment}/assets?access_token=${accessToken}&mimetype_group=image`
+  );
+  const data = await res.json();
+  const { items } = data;
+  return items;
+  // const fields = data.map((d) => d.items.fields);
+  // console.log(fields);
+  // return fields;
+};
+
+export const getHeroImage = async (ids) => {
+  const res = await fetch(
+    `https://cdn.contentful.com/spaces/${process.env.CONTENTFUL_SPACE}/assets/${ids}?access_token=${process.env.CONTENTFUL_ACCESSTOKEN}&include=1`
+  );
+  const data = await res.json();
+  const imageUrl = `https:${data.fields?.file.url}`;
+  return imageUrl;
+};

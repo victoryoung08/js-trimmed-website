@@ -9,7 +9,6 @@ import ContactForm from "./components/ContactForm";
 export default async function Home() {
   const logos = await getLogos();
   const caseStudies = await getCaseStudiesContent();
-
   return (
     <main className="section-x-padding relative z-20">
       <section className="flex flex-col items-center py-24 gap-12 h-fit">
