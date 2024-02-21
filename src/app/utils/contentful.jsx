@@ -16,11 +16,11 @@ export const getCaseStudies = async () => {
         cache: "no-store",
       }
     );
-
     const data = await res.json();
     return data;
   } catch (err) {
-    console.log(err);
+    console.log(`Something went wrong with getting case studies ${err}`);
+    return [];
   }
 };
 
@@ -35,20 +35,24 @@ export const getCaseStudiesContent = async () => {
     );
 
     const data = await res.json();
-    const items = data.items;
+    const items = data?.items ?? [];
     const caseStudyFields = items.map((item) => item.fields);
     return caseStudyFields;
   } catch (err) {
     console.log(err);
+    return [];
   }
 };
 
 export const getFields = async () => {
   try {
-    const { items } = await getCaseStudies();
-    const caseStudies = items.filter(
-      (item) => item.sys.space.sys.id === "98888r78yd9b"
-    );
+    const data = await getCaseStudies();
+    if (!data || !data.items) {
+      console.log("No items found or data is undefined");
+      return [];
+    }
+    const { items } = data;
+    const caseStudies = items.filter((item) => item.sys.space.sys.id === space);
     const fields = caseStudies.map((cs) => cs.fields);
     return fields;
   } catch (err) {
@@ -63,6 +67,7 @@ export const getLogos = async () => {
     return logos;
   } catch (err) {
     console.log(err);
+    return [];
   }
 };
 
@@ -90,10 +95,14 @@ export const getAssetDetails = async (assetId) => {
       }
     );
     const data = await res.json();
+    if (!data) {
+      console.log("Something went wrong with getting asset details");
+    }
     const assetURL = data.fields.file.url;
     return `https:${assetURL}`;
   } catch (err) {
     console.log(err);
+    return [];
   }
 };
 
@@ -110,6 +119,7 @@ export const getCaseStudyPageData = async (query, value) => {
     return data;
   } catch (err) {
     console.log(error);
+    return [];
   }
 };
 
@@ -118,6 +128,10 @@ export const getAssetsInfo = async (id) => {
     `${base_url}/spaces/${space}/environments/${environment}/assets?access_token=${accessToken}&mimetype_group=image`
   );
   const data = await res.json();
+  if (!data) {
+    console.log("Something went wrong with getAssestsInfo()");
+    return [];
+  }
   const { items } = data;
   return items;
   // const fields = data.map((d) => d.items.fields);
@@ -130,6 +144,10 @@ export const getHeroImage = async (ids) => {
     `https://cdn.contentful.com/spaces/${process.env.CONTENTFUL_SPACE}/assets/${ids}?access_token=${process.env.CONTENTFUL_ACCESSTOKEN}&include=1`
   );
   const data = await res.json();
+  if (!data) {
+    console.log("Something went wrong with getHeroImage");
+    return [];
+  }
   const imageUrl = `https:${data.fields?.file.url}`;
   return imageUrl;
 };

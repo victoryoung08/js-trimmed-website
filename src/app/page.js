@@ -5,12 +5,24 @@ import { getFields, getLogos, getCaseStudiesContent } from "./utils/contentful";
 import ServiceGrid from "./components/ServiceGrid";
 import Timeline from "./components/Timeline";
 import ContactForm from "./components/ContactForm";
+import Head from "next/head";
 
 export default async function Home() {
-  const logos = await getLogos();
+  // const logos = await getLogos();
   const caseStudies = await getCaseStudiesContent();
   return (
     <main className="section-x-padding relative z-20">
+      <Head>
+        <title>
+          Fill up your business with leads| Digital Marketing and Social Media
+          Marketing | Trimmed Marketing
+        </title>
+        <meta
+          name="description"
+          content="Want more qualified leads? Sick of low views and visibility on social media? We focus on leads - not just likes."
+          key="desc"
+        />
+      </Head>
       <section className="flex flex-col items-center py-24 gap-12 h-fit">
         <div className="text-center flex flex-col gap-4 items-center ">
           <h1 className="uppercase">
