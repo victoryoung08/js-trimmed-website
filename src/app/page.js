@@ -1,17 +1,24 @@
 import Image from "next/image";
 import FeatureCard from "./components/FeatureCard";
 // import VideoGrid from "./components/VideoGrid/VideoGrid";
-import { getFields, getLogos, getCaseStudiesContent } from "./utils/contentful";
+import {
+  getFields,
+  getLogos,
+  getCaseStudiesContent,
+  generateLogoIds,
+} from "./utils/contentful";
 import ServiceGrid from "./components/ServiceGrid";
 import Timeline from "./components/Timeline";
 import ContactForm from "./components/ContactForm";
 import Head from "next/head";
+import LogoGrid from "./components/LogoGrid";
 
 export default async function Home() {
   // const logos = await getLogos();
   const caseStudies = await getCaseStudiesContent();
+  const logos = await generateLogoIds();
   return (
-    <main className="section-x-padding relative z-20">
+    <main className=" relative z-20">
       <Head>
         <title>
           Fill up your business with leads| Digital Marketing and Social Media
@@ -23,7 +30,7 @@ export default async function Home() {
           key="desc"
         />
       </Head>
-      <section className="flex flex-col items-center py-24 gap-12 h-fit">
+      <section className="flex flex-col items-center py-24 gap-12 h-fit section-x-padding">
         <div className="text-center flex flex-col gap-4 items-center ">
           <h1 className="uppercase">
             More Customers
@@ -40,19 +47,9 @@ export default async function Home() {
         <div className="w-full h-32 bg-white"></div>
       </section>
       {/* LOGO GRID */}
-      <section className="flex gap-4 overflow-hidden section-y-padding sm">
-        <div className="border-white border-[0.5px] w-fit h-16 rounded-[32px]">
-          <img src="" alt="" className="w-32" />
-        </div>
-        <div className="border-white border-[0.5px] w-fit h-16 rounded-[32px]">
-          <img src="" alt="" className="w-64" />
-        </div>
-        <div className="border-white border-[0.5px] w-fit h-16 rounded-[32px]">
-          <img src="" alt="" className="w-32" />
-        </div>
-      </section>
+      <LogoGrid data={logos} />
       {/* mission statement */}
-      <section className="section-y-padding">
+      <section className="section-y-padding section-x-padding">
         <div>
           <h2 className="uppercase">We chase leads</h2>
           <p>
@@ -81,7 +78,7 @@ export default async function Home() {
       {/* services */}
       {/* <ServiceGrid /> */}
       {/* case study */}
-      <section className="section-y-padding flex flex-col gap-8">
+      <section className="section-y-padding flex flex-col gap-8 section-x-padding">
         {caseStudies.map((cs, index) =>
           index % 2 === 0 ? (
             <FeatureCard position="left" content={cs} key={cs + index} />

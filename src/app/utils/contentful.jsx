@@ -13,7 +13,6 @@ export const getCaseStudies = async () => {
       `${base_url}/spaces/${space}/environments/${environment}/entries?access_token=${accessToken}`,
       {
         method: "GET",
-        cache: "no-store",
       }
     );
     const data = await res.json();
@@ -30,7 +29,6 @@ export const getCaseStudiesContent = async () => {
       `${base_url}/spaces/${space}/environments/${environment}/entries?access_token=${accessToken}&content_type=${caseStudiesContentTypeId}`,
       {
         method: "GET",
-        cache: "no-store",
       }
     );
 
@@ -150,4 +148,33 @@ export const getHeroImage = async (ids) => {
   }
   const imageUrl = `https:${data.fields?.file.url}`;
   return imageUrl;
+};
+
+export const selectFields = async (contentType) => {
+  const res = await fetch(
+    `${base_url}/spaces/${space}/environments/${environment}/entries?access_token=${accessToken}&content_type=${contentType}`,
+    {
+      method: "GET",
+    }
+  );
+  const data = await res.json();
+  return data;
+};
+
+export const httpsCreator = async (data) => {
+  return data.map((d) => `https:${d}`);
+};
+
+export const generateLogoIds = async () => {
+  try {
+    const assets = await selectFields("logos");
+    if (!assets) {
+      console.log("No Asset Data available from selectFields");
+    }
+    const assetIncludes = assets.includes["Asset"];
+    const assetFileUrls = assetIncludes.map((asset) => asset.fields.file.url);
+    return httpsCreator(assetFileUrls);
+  } catch (err) {
+    console.log(`Something went wrong with getting logo ids ${err}`);
+  }
 };
