@@ -22,7 +22,7 @@ const roadmap = [
 
 export default function Timeline() {
   return (
-    <section className="section-y-padding max-w-[600px] mx-auto">
+    <section className="section-y-padding max-w-[600px] mx-auto section-x-padding">
       <div className="relative w-full h-[600px] flex flex-col items-center justify-evenly">
         <div
           id="midline"
