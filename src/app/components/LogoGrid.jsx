@@ -29,7 +29,7 @@ export default function LogoGrid({ data }) {
         perPage: 4,
         autoWidth: true,
         autoScroll: {
-          speed: 1,
+          speed: 1.25,
         },
       }}
       extensions={{ AutoScroll }}

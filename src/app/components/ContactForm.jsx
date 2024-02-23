@@ -10,7 +10,7 @@ export default function ContactForm({ type = "default" }) {
     <section className="section-y-padding max-w-[80%] mx-auto md:max-w-[450px]">
       {type === "strategy" && (
         <div className="flex flex-col items-center justify-center gap-4 py-12">
-          <h2 className="uppercase">Book a FREE Strategy call</h2>
+          <h2 className="uppercase text-center">Book a FREE Strategy call</h2>
           <ul className="list-disc flex flex-col gap-1">
             <li>We&apos;ll review your lead generation strategy</li>
             <li>We&apos;ll identify the gaps in your current strategy</li>
