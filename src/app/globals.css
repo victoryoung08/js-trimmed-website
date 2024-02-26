@@ -37,6 +37,10 @@ button {
   @apply py-24;
 }
 
+.section-padding {
+  @apply px-4 py-24 sm:px-12 md:px-48;
+}
+
 .section-y-padding.sm {
   @apply py-12;
 }

@@ -38,7 +38,7 @@ export default async function Home() {
       {/* LOGO GRID */}
       <LogoGrid data={logos} />
       {/* mission statement */}
-      <section className="section-y-padding section-x-padding">
+      <section className="section-y-padding section-x-padding lg:px-96">
         <div>
           <h2 className="uppercase">We chase leads</h2>
           <p>
@@ -57,7 +57,7 @@ export default async function Home() {
               And your business needs to connect with these people.
             </span>
             <br />
-            Our paid ads strategy does exactly this.
+            <span>We do exactly this.</span>
           </p>
         </div>
       </section>
@@ -76,6 +76,7 @@ export default async function Home() {
           )
         )}
       </section>
+      <section className="section-padding"></section>
       {/* Form */}
       <ContactForm type={"strategy"} />
     </main>

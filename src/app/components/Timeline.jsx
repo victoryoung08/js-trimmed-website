@@ -22,7 +22,11 @@ const roadmap = [
 
 export default function Timeline() {
   return (
-    <section className="section-y-padding max-w-[600px] mx-auto section-x-padding">
+    <section className="section-y-padding w-full mx-auto section-x-padding">
+      <div className="text-center py-24 flex flex-col gap-4">
+        <h2 className="uppercase">A 3 Channel Strategy</h2>
+        <p>Social Media Content. Paid Ads. And a Web Page made to convert.</p>
+      </div>
       <div className="relative w-full h-[600px] flex flex-col items-center justify-evenly">
         <div
           id="midline"

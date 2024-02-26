@@ -22,5 +22,13 @@ module.exports = {
       },
     },
   },
-  plugins: [nextui()],
+  plugins: [
+    nextui({
+      layout: {
+        fontSize: {
+          medium: "1.125rem",
+        },
+      },
+    }),
+  ],
 };
