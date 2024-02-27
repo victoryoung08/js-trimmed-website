@@ -1,4 +1,4 @@
-import HeroImageRow from "./HeroImageRow";
+import ScrollButton from "./ScrollButton";
 
 export default function HeroSection() {
   return (
@@ -13,8 +13,7 @@ export default function HeroSection() {
         If only more people knew about your business. <br /> We damn good
         content to get their attention, and turn followers into customers.
       </p>
-      <button className="button large">SOUNDS GOOD, LET&apos;S ROLL</button>
-      <HeroImageRow />
+      <ScrollButton scrollId="contactForm" />
     </div>
   );
 }

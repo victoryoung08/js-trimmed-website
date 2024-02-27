@@ -1,5 +1,4 @@
 import Image from "next/image";
-import FeatureCard from "./components/FeatureCard";
 // import VideoGrid from "./components/VideoGrid/VideoGrid";
 import {
   getFields,
@@ -13,13 +12,13 @@ import ContactForm from "./components/ContactForm";
 import Head from "next/head";
 import LogoGrid from "./components/LogoGrid";
 import HeroSection from "./components/HeroSection";
+import HeroImageRow from "./components/HeroImageRow";
+import CaseStudySection from "./components/CaseStudySection";
 
 export default async function Home() {
-  // const logos = await getLogos();
-  const caseStudies = await getCaseStudiesContent();
   const logos = await generateLogoIds();
   return (
-    <main className=" relative z-20">
+    <main className=" relative z-20 pb-24">
       <Head>
         <title>
           Fill up your business with leads| Digital Marketing and Social Media
@@ -34,7 +33,7 @@ export default async function Home() {
       <section className="flex flex-col items-center py-24 gap-12 h-fit section-x-padding">
         <HeroSection />
       </section>
-
+      <HeroImageRow />
       {/* LOGO GRID */}
       <LogoGrid data={logos} />
       {/* mission statement */}
@@ -61,21 +60,13 @@ export default async function Home() {
           </p>
         </div>
       </section>
+      <ServiceGrid />
       {/* how it works */}
       <Timeline />
       {/* <VideoGrid /> */}
       {/* services */}
-      {/* <ServiceGrid /> */}
       {/* case study */}
-      <section className="section-y-padding flex flex-col gap-8 section-x-padding">
-        {caseStudies.map((cs, index) =>
-          index % 2 === 0 ? (
-            <FeatureCard position="left" content={cs} key={cs + index} />
-          ) : (
-            <FeatureCard position="right" content={cs} key={cs + index} />
-          )
-        )}
-      </section>
+      <CaseStudySection />
       <section className="section-padding"></section>
       {/* Form */}
       <ContactForm type={"strategy"} />

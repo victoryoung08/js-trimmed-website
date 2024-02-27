@@ -1,24 +1,10 @@
 "use client";
 import Image from "next/image";
-// import { generateLogoIds } from "../utils/contentful";
 import { Splide, SplideSlide } from "@splidejs/react-splide";
 import { AutoScroll } from "@splidejs/splide-extension-auto-scroll";
 import "@splidejs/react-splide/css";
 
 export default function LogoGrid({ data }) {
-  const scrollVariants = {
-    animate: {
-      x: [0, -1000], // Adjust the x value to fit the total width of your logos
-      transition: {
-        x: {
-          repeat: Infinity,
-          repeatType: "loop",
-          duration: 10, // Adjust duration for speed control
-          ease: "linear",
-        },
-      },
-    },
-  };
   return (
     <Splide
       options={{
@@ -47,7 +33,6 @@ export default function LogoGrid({ data }) {
           />
         </SplideSlide>
       ))}
-      {/* </motion.div> */}
     </Splide>
   );
 }

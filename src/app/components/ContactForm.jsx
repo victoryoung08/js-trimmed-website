@@ -7,7 +7,10 @@ export default function ContactForm({ type = "default" }) {
     handleLeads(formData);
   };
   return (
-    <section className="section-y-padding max-w-[80%] mx-auto md:max-w-[450px]">
+    <section
+      className="section-y-padding max-w-[80%] mx-auto md:max-w-[450px]"
+      id="contactForm"
+    >
       {type === "strategy" && (
         <div className="flex flex-col items-center justify-center gap-4 py-12">
           <h2 className="uppercase text-center">Book a FREE Strategy call</h2>

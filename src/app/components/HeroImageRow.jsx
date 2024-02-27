@@ -34,20 +34,21 @@ export default function HeroImageRow() {
     },
   ];
   return (
-    <Splide
-      className="flex gap-1 w-full py-8"
-      options={{
-        padding: "",
-        gap: "12px",
-        perPage: `${Number(heroImages.length)}`,
-        arrows: false,
-      }}
-    >
-      {heroImages.map((hero) => (
-        <SplideSlide key={hero.name}>
-          <Image src={hero.src} alt={hero.name} width={80} height={150} />
-        </SplideSlide>
-      ))}
-    </Splide>
+    <div className="w-full mx-auto">
+      <Splide
+        className="flex gap-1 w-full py-8 justify-center items-center"
+        options={{
+          gap: "12px",
+          perPage: `${Number(heroImages.length)}`,
+          arrows: false,
+        }}
+      >
+        {heroImages.map((hero) => (
+          <SplideSlide key={hero.name}>
+            <Image src={hero.src} alt={hero.name} width={300} height={400} />
+          </SplideSlide>
+        ))}
+      </Splide>
+    </div>
   );
 }
