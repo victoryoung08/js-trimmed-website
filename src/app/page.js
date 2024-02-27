@@ -18,7 +18,7 @@ import CaseStudySection from "./components/CaseStudySection";
 export default async function Home() {
   const logos = await generateLogoIds();
   return (
-    <main className=" relative z-20 pb-24">
+    <>
       <Head>
         <title>
           Fill up your business with leads| Digital Marketing and Social Media
@@ -34,46 +34,48 @@ export default async function Home() {
           content="Trimmed Marketing | Capture Leads and Likes"
         />
       </Head>
-      <section className="flex flex-col items-center py-24 gap-12 h-fit section-x-padding">
-        <HeroSection />
-      </section>
-      <HeroImageRow />
-      {/* LOGO GRID */}
-      <LogoGrid data={logos} />
-      {/* mission statement */}
-      <section className="section-y-padding section-x-padding lg:px-96">
-        <div>
-          <h2 className="uppercase">We chase leads</h2>
-          <p>
-            Our goal is get you in front of people who want to buy.
-            <br /> Not browsers, not window shoppers... no low ballers either.
-            <br />
-            <br />
-            <span className="font-extrabold">
-              People pay to solve problems.
-            </span>
-            <br />
-            We create content that shows you do.
-            <br />
-            <br />
-            <span className="font-extrabold">
-              And your business needs to connect with these people.
-            </span>
-            <br />
-            <span>We do exactly this.</span>
-          </p>
-        </div>
-      </section>
-      <ServiceGrid />
-      {/* how it works */}
-      <Timeline />
-      {/* <VideoGrid /> */}
-      {/* services */}
-      {/* case study */}
-      <CaseStudySection />
-      <section className="section-padding"></section>
-      {/* Form */}
-      <ContactForm type={"strategy"} />
-    </main>
+      <main className=" relative z-20 pb-24">
+        <section className="flex flex-col items-center py-24 gap-12 h-fit section-x-padding">
+          <HeroSection />
+        </section>
+        <HeroImageRow />
+        {/* LOGO GRID */}
+        <LogoGrid data={logos} />
+        {/* mission statement */}
+        <section className="section-y-padding section-x-padding lg:px-96">
+          <div>
+            <h2 className="uppercase">We chase leads</h2>
+            <p>
+              Our goal is get you in front of people who want to buy.
+              <br /> Not browsers, not window shoppers... no low ballers either.
+              <br />
+              <br />
+              <span className="font-extrabold">
+                People pay to solve problems.
+              </span>
+              <br />
+              We create content that shows you do.
+              <br />
+              <br />
+              <span className="font-extrabold">
+                And your business needs to connect with these people.
+              </span>
+              <br />
+              <span>We do exactly this.</span>
+            </p>
+          </div>
+        </section>
+        <ServiceGrid />
+        {/* how it works */}
+        <Timeline />
+        {/* <VideoGrid /> */}
+        {/* services */}
+        {/* case study */}
+        <CaseStudySection />
+        <section className="section-padding"></section>
+        {/* Form */}
+        <ContactForm type={"strategy"} />
+      </main>
+    </>
   );
 }

@@ -5,6 +5,11 @@ import Navbar from "./components/Navbar";
 import { GoogleTagManager } from "@next/third-parties/google";
 const font = DM_Sans({ subsets: ["latin"] });
 
+export const metadata = {
+  title: "Trimmed Marketing | Capture Leads and Likes",
+  description: "Social Media Creative Content & Lead Generation",
+};
+
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
