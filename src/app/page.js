@@ -29,6 +29,10 @@ export default async function Home() {
           content="Want more qualified leads? Sick of low views and visibility on social media? We focus on leads - not just likes."
           key="desc"
         />
+        <meta
+          type="og:title"
+          content="Trimmed Marketing | Capture Leads and Likes"
+        />
       </Head>
       <section className="flex flex-col items-center py-24 gap-12 h-fit section-x-padding">
         <HeroSection />
