@@ -1,54 +1,21 @@
-"use client";
 import Image from "next/image";
-import { Splide, SplideSlide } from "@splidejs/react-splide";
-export default function HeroImageRow() {
-  const heroImages = [
-    {
-      name: "Strong Living EP",
-      src: "/strongLiving.png",
-    },
-    {
-      name: "Hands Physio",
-      src: "/handsPhysio.png",
-    },
-    {
-      name: "Blossom68 Cafe",
-      src: "/blossom.png",
-    },
-    {
-      name: "On The Chair Productions",
-      src: "/otc.png",
-    },
-    {
-      name: "Pic Up Media",
-      src: "/picup.png",
-    },
+import { getAssetsByTagWithImageURL } from "../utils/contentful";
+export default async function HeroImageRow() {
+  const data = await getAssetsByTagWithImageURL("heroSection");
 
-    {
-      name: "HyAVu Advisory",
-      src: "/accounting.png",
-    },
-    {
-      name: "Mancave Barbershop Australia",
-      src: "/barbershop.png",
-    },
-  ];
   return (
-    <div className="w-full mx-auto">
-      <Splide
-        className="flex gap-1 w-full py-8 justify-center items-center"
-        options={{
-          gap: "12px",
-          perPage: `${Number(heroImages.length)}`,
-          arrows: false,
-        }}
-      >
-        {heroImages.map((hero) => (
-          <SplideSlide key={hero.name}>
-            <Image src={hero.src} alt={hero.name} width={300} height={400} />
-          </SplideSlide>
-        ))}
-      </Splide>
+    <div className="w-full mx-auto flex h-[180px] relative gap-4 justify-center">
+      {data.map((image) => (
+        <div key={image.title}>
+          <Image
+            src={`https:${image.file.url}`}
+            alt={image.title}
+            width={90}
+            height={160}
+            style={{ objectFit: "cover" }}
+          />
+        </div>
+      ))}
     </div>
   );
 }

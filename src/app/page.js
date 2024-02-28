@@ -1,9 +1,7 @@
 import Image from "next/image";
 // import VideoGrid from "./components/VideoGrid/VideoGrid";
 import {
-  getFields,
-  getLogos,
-  getCaseStudiesContent,
+  getAssetsByTagWithImageURL,
   generateLogoIds,
 } from "./utils/contentful";
 import ServiceGrid from "./components/ServiceGrid";
@@ -17,6 +15,7 @@ import CaseStudySection from "./components/CaseStudySection";
 
 export default async function Home() {
   const logos = await generateLogoIds();
+  const assetImageUrls = await getAssetsByTagWithImageURL("heroSection");
   return (
     <>
       <Head>
@@ -37,8 +36,8 @@ export default async function Home() {
       <main className=" relative z-20 pb-24">
         <section className="flex flex-col items-center py-24 gap-12 h-fit section-x-padding">
           <HeroSection />
+          <HeroImageRow />
         </section>
-        <HeroImageRow />
         {/* LOGO GRID */}
         <LogoGrid data={logos} />
         {/* mission statement */}

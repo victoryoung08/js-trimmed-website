@@ -69,7 +69,7 @@ export const getLogos = async () => {
   }
 };
 
-export const getCaseStudy = async (id) => {
+export const getEntry = async (id) => {
   try {
     const res = await fetch(
       `${base_url}/spaces/${space}/environments/${environment}/entries/${id}`,
@@ -176,5 +176,22 @@ export const generateLogoIds = async () => {
     return httpsCreator(assetFileUrls);
   } catch (err) {
     console.log(`Something went wrong with getting logo ids ${err}`);
+  }
+};
+
+export const getAssetsByTag = async (tag) => {
+  const res = await fetch(
+    `${base_url}/spaces/${space}/environments/${environment}/entries?access_token=${accessToken}&metadata.tags.sys.id[all]=${tag}`
+  );
+  const data = await res.json();
+  return data;
+};
+
+export const getAssetsByTagWithImageURL = async (tag) => {
+  const data = await getAssetsByTag(tag);
+  const { includes } = data;
+  if (includes && includes.Asset) {
+    const files = includes.Asset.map((asset) => asset.fields);
+    return files;
   }
 };
